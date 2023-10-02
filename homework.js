@@ -181,3 +181,184 @@ login має бути суспільною властивістю, а email пр
 
 // client.email = "aser@mail.com";
 // console.log(client.email);
+
+///    30.09 субота
+
+/*
+Натискання на кнопку "SHOW ME" має виводити значення з поля введення в alert
+
+<div>
+        <button id="alertButton">SHOW ME</button>
+        <input id="alertInput" type="text" value="Hello world!" />
+</div>
+*/
+
+// const buttonRef = document.querySelector("#alertButton");
+// const inputRef = document.querySelector("#alertInput");
+// buttonRef.addEventListener("click", showAlert);
+// function showAlert() {
+//   alert(inputRef.value.trim());
+// }
+
+// 2 task
+
+//Написати скрипт: при натисканні на кнопку додавати в div з ідентифікатором «container»
+//фрагмент розмітки:
+{
+  /* <div class="item"> 
+<h3>Заголовок</h3>
+<p>текст текст текст</p>
+</div> */
+}
+{
+  /* <button class="add-btn">add</button>
+  <div class="container"></div> */
+}
+// варіант 1
+// const containerEl = document.querySelector(".container");
+// const btnEl = document.querySelector(".add-btn");
+
+// btnEl.addEventListener("click", addMarkup);
+
+// function addMarkup() {
+//   const div = document.createElement("div");
+//   const h3 = document.createElement("h3");
+//   const p = document.createElement("p");
+//   h3.textContent = "Title";
+//   p.textContent = "Text Random";
+//   div.classList.add("item");
+//   div.append(h3, p);
+//   containerEl.append(div);
+// };
+
+//варінт 2
+
+// function addMarkup() {
+//   const markup = `
+// <div class="item">
+// <h3>Заголовок</h3>
+// <p>текст текст текст</p>
+// </div> `;
+//   containerEl.insertAdjacentHTML("afterbegin", markup);
+// }
+
+//task 3
+/*
+Після натискання кнопки "SWAP ME" здійснюється обмін вмістом між двома інпутами.
+Ви можете натиснути на неї кілька разів або вручну змінити вміст інпутів.
+
+   <div>
+        <button id="swapButton">SWAP ME</button>
+        <input id="leftSwapInput" type="text" value="???" />
+        <input id="rightSwapInput" type="text" value="!!!" />
+   </div>
+*/
+
+// const btnRef = document.querySelector("#swapButton");
+// const inpOneRef = document.querySelector("#leftSwapInput");
+// const inpTwoRef = document.querySelector("#rightSwapInput");
+
+// btnRef.addEventListener("click", handlerClick);
+//варіант 1
+// function handlerClick() {
+//   const value = inpOneRef.value;
+//   inpOneRef.value = inpTwoRef.value;
+//   inpTwoRef.value = value;
+// };
+//варіант 2 (дескрутурізація)
+// function handlerClick() {
+//   [inpOneRef.value, inpTwoRef.value] = [inpTwoRef.value, inpOneRef.value];
+// }
+
+//task 4
+
+/* Кнопка "Приховати" ховає текст і замінює назву кнопки на
+"Розкрити", при повторному натисканні текст знову стає доступним
+і кнопка набуває початкового вигляду.
+
+<div>
+        <input id="passwordInput" value="pass123456"  type="password">
+        <button id="passwordButton">Розкрити</button>
+    </div>
+*/
+
+// const passwordRef = document.querySelector("#passwordInput");
+// const btnRef = document.querySelector("#passwordButton");
+
+// btnRef.addEventListener("click", oneClick);
+
+// function oneClick() {
+//   if (passwordRef.type === "text") {
+//     passwordRef.type = "password";
+//     btnRef.textContent = "Розскрити";
+//   } else {
+//     passwordRef.type = "text";
+//     btnRef.textContent = "Приховати";
+//   }
+// }
+
+//варіант 2 (скороченний код)
+// function oneClick() {
+//   const flag = passwordRef.type === "text";
+//   passwordRef.type = flag ? "password" : "text";
+//   btnRef.textContent = flag ? "Розскрити" : "Приховати";
+// }
+
+//task 5
+
+//При натисканні на кнопку міняти фоновий колір елемента з класом .play на прозорий.
+//Примітка: використовуйте CSS-властивість opacity.
+
+{
+  /* <button class="add-btn">add</button>
+    <div class="play"></div> */
+}
+{
+  /* <style>
+  .play {
+    background: pink;
+    width: 100px;
+    height: 100px;
+  }
+</style> */
+}
+
+// const btnRef = document.querySelector(".add-btn");
+// const divRef = document.querySelector(".play");
+
+// btnRef.addEventListener("click", handlerClick);
+
+// let opacity = 1;
+
+// function handlerClick(event) {
+//   opacity -= 0.1;
+//   divRef.style.opacity = opacity;
+// }
+
+//task 6
+
+// Напишіть інтерфейс створення списку.
+//Для кожного пункту:
+
+// Запитуйте вміст пункту користувача за допомогою prompt.
+// Створюйте елемент <li> і додайте його до <ul>.
+// Процес переривається, коли користувач натискає вводить порожній рядок.
+// Усі елементи мають створюватися динамічно.
+
+{
+  /* <ul class="list"></ul> */
+}
+const markup = [];
+
+let result = null;
+const ulRef = document.querySelector(".list");
+
+do {
+  result = prompt("Твоє прізвище");
+  if (result) {
+    const li = `<li>${result}</li>`;
+    markup.push(li);
+  }
+} while (result);
+
+ulRef.insertAdjacentHTML("afterbegin", markup.join(""));
